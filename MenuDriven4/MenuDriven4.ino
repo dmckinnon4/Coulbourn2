@@ -344,16 +344,16 @@ void experiment1() {
         setCage(4,ttL_Pulse_width, 0);  // Left Box 4
         break;
       case 5:
-        setCage(1,ttL_Pulse_width, 0);  // Right Box 1
+        setCage(5,ttL_Pulse_width, 0);  // Right Box 1
         break;    
       case 6:
-        setCage(1,ttL_Pulse_width, 0);  // Right Box 2
+        setCage(6,ttL_Pulse_width, 0);  // Right Box 2
         break;
       case 7:
-        setCage(1,ttL_Pulse_width, 0);  // Right Box 3  
+        setCage(7,ttL_Pulse_width, 0);  // Right Box 3  
         break;  
       case 8:
-        setCage(1,ttL_Pulse_width, 0);  // Right Box 4 
+        setCage(8,ttL_Pulse_width, 0);  // Right Box 4 
         break;
     }  // Switch
     
