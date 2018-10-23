@@ -65,7 +65,7 @@ byte rowPins[ROWS] = {44, 46, 48, 50}; //connect to the row pinouts of the keypa
 byte colPins[COLS] = {38, 40, 42}; // connect to the column pinouts of the keypad
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
-// for the data logging shield, we use digital pin 10 for the SD cs line
+// for the data logging shield, use digital pin 10 for the SD cs line
 const int chipSelect = 10;      
 
 // Coulbourn ttl pulse definition
@@ -373,11 +373,12 @@ void printDate(){
 
 void experiment1() {  
   unsigned long ttL_Pulse_width = 2000;   // default length of shock, 2 second
+  
   long start_time;              // time to first shock, about 1.5 seconds
-  unsigned long loopStartTime;  // time at start of loop
   unsigned long dayTime;        // variable for calculating time of day
+  unsigned long loopStartTime;  // time at start of loop
   long day_shock_Number = 1;    // tracks number of shocks delivered during day, used to determine timing of shocks
-  long night_shock_Number = 1;  // tracks number of shocks delivered during day, used to determine timing of shocks
+  long night_shock_Number = 1;  // tracks number of shocks delivered during night, used to determine timing of shocks
   int nextCageNumber;           // which cage to shock next
   int cageNumber;               // which cage to shock
 
@@ -399,6 +400,8 @@ void experiment1() {
   lcd.print("                   ");
   lcd.setCursor(0,3); //Start at character 0 on line 3
   lcd.print("                   ");
+  Serial.println("Program: MenuDriven Experiment 1: start");
+  
   start_time = millis();
   
   while (true) {
@@ -409,7 +412,7 @@ void experiment1() {
     cageNumber = nextCageNumber;
     nextCageNumber = random(1,9);            // select cage to shock next
     
-    lcd.setCursor(0,2); //Start at character 0 on line 1
+    lcd.setCursor(0,2); //Start at character 0 on line 3
     switch (nextCageNumber) {
       case 1: lcd.print("Next: Left Box 1    "); break;
       case 2: lcd.print("Next: Left Box 2    "); break;
@@ -473,7 +476,8 @@ void experiment1() {
       lcd.print("sec");
 
       // wait until time for next shock
-      while (((millis()-start_time) % day_ms) < (night_shock_Number*night_shock_period)) {}
+      while ((millis()-start_time -loopStartTime) < night_shock_period) {}
+//      while (((millis()-start_time) % day_ms) < (night_shock_Number*night_shock_period)) {}
       
       night_shock_Number = night_shock_Number + 1;
       day_shock_Number = 1;
@@ -496,7 +500,8 @@ void experiment1() {
       lcd.print("sec");
       
       // wait until time for next shock
-      while ((((millis()-start_time) % day_ms) - half_day_ms) < (day_shock_Number*day_shock_period)) {}
+      while ((millis()-start_time -loopStartTime) < day_shock_period) {}
+//      while ((((millis()-start_time) % day_ms) - half_day_ms) < (day_shock_Number*day_shock_period)) {}
       
       day_shock_Number = day_shock_Number + 1;
       night_shock_Number = 1;
