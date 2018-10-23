@@ -1,3 +1,8 @@
+// TODO:
+// 1. Old shock timing crosses over into next day/time period.
+// Revised version is wrong, need to fix. Have reverted to old version.
+// 2. Count down time to next shock.
+
 #include "Keypad.h"
 #include <SPI.h>
 //#include <SD.h>
@@ -470,9 +475,9 @@ void experiment1() {
       
       lcd.setCursor(0,3); //Start at character 0 on line 3
       lcd.print("Night               ");
-      lcd.setCursor(8,3); //Start at character 0 on line 3
+      lcd.setCursor(8,3); //Start at character 8 on line 3
       lcd.print(night_shock_period/1000);           
-      lcd.setCursor(12,3); //Start at character 0 on line 3
+      lcd.setCursor(12,3); //Start at character 12 on line 3
       lcd.print("sec");
 
       // wait until time for next shock
