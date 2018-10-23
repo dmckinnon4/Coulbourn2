@@ -29,24 +29,24 @@ RTC_DS1307 RTC; // define the Real Time Clock object
 
 // Constants for Experiment 1
 // Use these values in actual experiment
-//const unsigned long day_ms = 86400000;
-//const unsigned long half_day_ms = 43200000; 
-//unsigned long night_shock_period = 112500;  // 1 min 52.5 sec between shocks, gives 4 shocks/hr/box for 8 boxes
-//unsigned long day_shock_period = 450000;    // 7
-//const unsigned long min_night_shock_period = 10000;   // two values give average 4 shocks/hr/box for 8 boxes during night
-//const unsigned long max_night_shock_period = 215000;  // range 10 to 215 seconds
-//const unsigned long min_day_shock_period = 10000;     // two values give average 1 shock/hr/box for 8 boxes during day
-//const unsigned long max_day_shock_period = 890000;    // range 10 to 890 seconds
+const unsigned long day_ms = 86400000;
+const unsigned long half_day_ms = 43200000; 
+unsigned long night_shock_period = 112500;  // 1 min 52.5 sec between shocks, gives 4 shocks/hr/box for 8 boxes
+unsigned long day_shock_period = 450000;    // 7
+const unsigned long min_night_shock_period = 10000;   // two values give average 4 shocks/hr/box for 8 boxes during night
+const unsigned long max_night_shock_period = 215000;  // range 10 to 215 seconds
+const unsigned long min_day_shock_period = 10000;     // two values give average 1 shock/hr/box for 8 boxes during day
+const unsigned long max_day_shock_period = 890000;    // range 10 to 890 seconds
 
 // Use these values for testing
-const unsigned long day_ms = 60000;       // just for testing
-const unsigned long half_day_ms = 30000;  // just for testing
-unsigned long night_shock_period = 6000;  // 6 seconds between shocks (ms), close to minimum
-unsigned long day_shock_period = 8000;    // 8 seconds between shocks (ms)
-const unsigned long min_night_shock_period = 6000;   // range for night delay
-const unsigned long max_night_shock_period = 10000;  
-const unsigned long min_day_shock_period = 6000;     // range for day delay
-const unsigned long max_day_shock_period = 10000; 
+//const unsigned long day_ms = 60000;       // just for testing
+//const unsigned long half_day_ms = 30000;  // just for testing
+//unsigned long night_shock_period = 6000;  // 6 seconds between shocks (ms), close to minimum
+//unsigned long day_shock_period = 8000;    // 8 seconds between shocks (ms)
+//const unsigned long min_night_shock_period = 6000;   // range for night delay
+//const unsigned long max_night_shock_period = 10000;  
+//const unsigned long min_day_shock_period = 6000;     // range for day delay
+//const unsigned long max_day_shock_period = 10000; 
 
 // Set up Pins
 int Relay1_Pin = 3;            // Pin 3 to control Relay 1 (relay in box)

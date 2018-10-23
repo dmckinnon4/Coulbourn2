@@ -20,7 +20,7 @@ boolean variablePulseLength = true;
 //boolean variableDelayTime = false;
 boolean variableDelayTime = true;
 
-//// Use these values in actual experiment
+////// Use these values in actual experiment
 const unsigned long day_ms = 86400000;
 const unsigned long half_day_ms = 43200000; 
 unsigned long night_shock_period = 112500;  // 1 min 52.5 sec between shocks, gives 4 shocks/hr/box for 8 boxes
